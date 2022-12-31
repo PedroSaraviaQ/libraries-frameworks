@@ -18,8 +18,9 @@
 #     ))
 # ]
 
-from rest_framework.routers import SimpleRouter
+from rest_framework.routers import SimpleRouter, DefaultRouter
 from . import views
-router = SimpleRouter(trailing_slash=False)
+# router = SimpleRouter(trailing_slash=False)
+router = DefaultRouter(trailing_slash=False)
 router.register("books", views.BookView2, basename="books")
 urlpatterns = router.urls
