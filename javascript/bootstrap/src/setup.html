@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <title>Setting up Bootstrap</title>
+</head>
+
+<body class="container bg-black text-white">
+  <h1 class="display-1 my-3">Setting up Bootstrap</h1>
+
+  <h2 class="my-3">NPM</h2>
+
+  <ol class="ps-3">
+    <li>Install Bootstrap inside the project.</li>
+    <pre class="border text-info mt-3"><code>
+  npm i bootstrap
+    </code></pre>
+
+    <li>In the HTML file, link the "bootstrap.min.css" file from the "node_modules/bootstrap/dist/css" folder.</li>
+    <pre class="border text-info mt-3"><code>
+  &lt;link rel="<span class="text-white">stylesheet</span>" href="<span class="text-white">../bootstrap.min.css</span>"&gt;
+    </code></pre>
+
+    <li>Optionally, link the "bootstrap.bundle.min.js" file for dynamic components.</li>
+    <pre class="border text-info mt-3"><code>
+  &lt;script src="<span class="text-white">../bootstrap.bundle.min.js</span>"&gt;&lt;/script&gt;
+    </code></pre>
+  </ol>
+
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
