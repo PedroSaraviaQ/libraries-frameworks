@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <title>Buttons</title>
+</head>
+
+<body class="container text-bg-dark">
+  <h1 class="display-1 my-3">Buttons</h1>
+
+  <p>They should have the basic "btn" class. Additionally, you should add other classes with the prefix "btn-" for
+    applying styles.</p>
+  <p class="fst-italic"> Anchor and input elements can also have these classes applied.</p>
+
+  <h2>Colors</h2>
+
+  <p>They match the basic colors, and the background changes a little when hovering.</p>
+  <div class="container row">
+    <pre class="border text-info col-6"><code>
+  class="<span class="text-white">btn btn-primary</span>"
+    </code></pre>
+    <div class="col-4 ms-2 mt-3">
+      <button class="btn btn-primary">primary</button>
+    </div>
+  </div>
+
+  <h2>Sizes</h2>
+
+  <p>You can also have larger (lg) or smaller (sm) buttons.</p>
+  <div class="container row">
+    <pre class="border text-info col-5"><code>
+  class="<span class="text-white">btn btn-sm</span>"
+  class="<span class="text-white">btn btn-lg</span>"
+    </code></pre>
+    <div class="col-6 ms-2 mt-3">
+      <button class="btn btn-success btn-sm">small</button>
+      <button class="btn btn-secondary mx-2">default</button>
+      <button class="btn btn-warning btn-lg">large</button>
+    </div>
+  </div>
+
+  <h2>Outline</h2>
+
+  <p>They have a transparent background that changes to the applied color when hovering. The class should also have the
+    "outline-" prefix.</p>
+  <div class="container row">
+    <pre class="border text-info col-7"><code>
+  class="<span class="text-white">btn btn-outline-danger</span>"
+    </code></pre>
+    <div class="col-1 ms-2 mt-3">
+      <button class="btn btn-outline-danger">outline</button>
+    </div>
+  </div>
+
+  <h2>Groups</h2>
+
+  <p>Buttons normally have space between them. To stack them together (and remove the border-radius between them), nest
+    them inside an element with either "group" or "group-vertical".
+  </p>
+  <div class="container row">
+    <pre class="border text-info col-7"><code>
+  &lt;div class="<span class="text-white">btn-group</span>"&gt;
+
+  <span class="text-white">...buttons</span>
+
+  &lt;/div&gt;
+
+
+  &lt;div class="<span class="text-white">btn-group-vertical</span>"&gt;
+
+  <span class="text-white">...more buttons</span>
+
+  &lt;/div&gt;
+    </code></pre>
+    <div class="col-5 ps-3">
+      <h3 class="mt-1">Default</h3>
+      <div>
+        <button class="btn btn-outline-light">1</button>
+        <button class="btn btn-outline-light">2</button>
+        <button class="btn btn-outline-light">3</button>
+      </div>
+      <h3 class="mt-2">Button group</h3>
+      <div class="btn-group">
+        <button class="btn btn-outline-light">1</button>
+        <button class="btn btn-outline-light">2</button>
+        <button class="btn btn-outline-light">3</button>
+        <button class="btn btn-outline-light">4</button>
+      </div>
+      <h3 class="mt-2">Vertical mode</h3>
+      <div class="btn-group-vertical">
+        <button class="btn btn-outline-light">Alphabetical</button>
+        <button class="btn btn-outline-light">Numeric</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
