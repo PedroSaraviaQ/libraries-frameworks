@@ -59,14 +59,14 @@
   &lt;/div&gt;
     </code></pre>
     <div class="col-auto">
-      <div class="border m-4 p-2">
+      <div class="border text-center m-4 p-2">
         border
       </div>
-      <div class="border-start m-4 p-2">
-        border
+      <div class="border-start text-center m-4 p-2">
+        start
       </div>
       <div class="border border-bottom-0 m-4 p-2">
-        border
+        - bottom
       </div>
     </div>
   </div>
@@ -76,16 +76,16 @@
     <pre class="border text-info col-9"><code>
   &lt;div class="<span class="text-white">border border-info</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
 
-  &lt;div class="<span class="text-white">border-end border-danger</span>"&gt;
+  &lt;div class="<span class="text-white">border-top border-danger</span>"&gt;
   <span class="text-white">...</span>
   &lt;/div&gt;
     </code></pre>
     <div class="col-auto">
-      <div class="border border-info m-3 p-2">
-        border
+      <div class="border border-info text-center m-3 p-2">
+        info
       </div>
-      <div class="border-end border-danger m-3 p-2">
-        border
+      <div class="border-top border-danger m-3 p-2">
+        danger
       </div>
     </div>
   </div>
@@ -103,8 +103,54 @@
       <div class="border border-2 m-3 me-0 p-2">
         border
       </div>
-      <div class="border-end border-3 m-3 me-0 p-2">
-        border
+      <div class="border-end border-3 text-center m-3 me-0 p-2">
+        end
+      </div>
+    </div>
+  </div>
+
+  <h2>Border-radius</h2>
+  <p>Additionally, you can modify the border-radius with the "rounded" class, without having to add borders. You
+    can either:</p>
+  <ul>
+    <li>Add the size of corners (from 0 to 5)</li>
+    <li>Define the sides (top, bottom, start, end)</li>
+    <li>Or add special borders (circle, pill)</li>
+  </ul>
+
+  <div class="container row">
+    <pre class="border text-info col-8"><code>
+  &lt;div class="<span class="text-white">rounded border</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">rounded-end</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">rounded-4</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="rounded border bg-gradient text-center m-2 me-0 p-2">
+        rounded
+      </div>
+      <div class="rounded-end bg-primary m-2 me-0 p-2">
+        rounded-end
+      </div>
+      <div class="rounded-4 bg-black text-center m-2 me-0 p-2">
+        rounded-4
+      </div>
+    </div>
+  </div>
+
+  <div class="container row">
+    <pre class="border text-info col-8"><code>
+  &lt;div class="<span class="text-white">rounded-circle</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">rounded-pill</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="rounded-circle bg-secondary m-2 p-2">
+        rounder-circle
+      </div>
+      <div class="rounded-pill text-bg-light text-center m-2 p-2">
+        rounded-pill
       </div>
     </div>
   </div>
