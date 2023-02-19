@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <title>Box Model</title>
+</head>
+
+<body class="container text-bg-dark">
+  <h1 class="display-1 my-3">Box Model</h1>
+
+  <h2>Margin and Padding</h2>
+  <p>They have the "m" and "p" prefixes respectively.</p>
+
+  <p>Sizes can vary from "0 to 5" and <b>auto</b>.</p>
+  <div class="container row">
+    <pre class="border text-info col-6"><code>
+  &lt;div class="<span class="text-white">p-3</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="border border-primary p-3">
+        abc
+      </div>
+    </div>
+  </div>
+
+  <p>To be more specific, you can also add more prefixes.</p>
+  <ul>
+    <li><b>t</b> (top), <b>b</b> (bottom), <b>y</b> (both top and bottom)</li>
+    <li><b>s</b> (left), <b>e</b> (right), <b>x</b> (both left and right)</li>
+  </ul>
+  <div class="container row">
+    <pre class="border text-info col-8"><code>
+  &lt;div class="<span class="text-white">mt-4 ms-2</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="border border-primary mt-4 ms-2">
+        123
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
