@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <title>Grid System</title>
+</head>
+
+<body class="text-bg-dark">
+  <h1 class="m-3">Grid System</h1>
+  <p class="mx-3">A responsive systems that can layout and align content. To start with, everything must be inside a
+    "container". Then, we use "row" and "col" classes. </p>
+
+  <p class="mx-3">You can just use the "col" class for every column to be the same width, or to occupy the space left in
+    a row.</p>
+  <pre class="border text-info mx-3"><code>
+    &lt;div class="<span class="text-white">container</span>"&gt;
+      &lt;div class="<span class="text-white">row</span>"&gt;
+        &lt;div class="<span class="text-white">col</span>"&gt;
+          &lt;div&gt;<span class="text-white">abc</span>&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="<span class="text-white">col</span>"&gt;
+          &lt;div&gt;<span class="text-white">123</span>&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="<span class="text-white">col</span>"&gt;
+          &lt;div&gt;<span class="text-white">xyz</span>&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  </code></pre>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="p-2 bg-primary">abc</div>
+      </div>
+      <div class="col">
+        <div class="p-2 bg-primary">123</div>
+      </div>
+      <div class="col">
+        <div class="p-2 bg-primary">xyz</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <p class="mx-3 mt-5">You can also add numbers from "1 to 12", or even "auto" to resize to its content. If we exceed
+    the 12 grid, the rest will just go to the next row.</p>
+  <pre class="border text-info mx-3"><code>
+    <span class="text-white">...</span>
+    &lt;div class="<span class="text-white">col</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    &lt;div class="<span class="text-white">col-6</span>"&gt;<span class="text-white">...</span> &lt;/div&gt;
+    &lt;div class="<span class="text-white">col</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    <span class="text-white">...</span>
+  </code></pre>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="p-2 bg-primary">abc</div>
+      </div>
+      <div class="col-6">
+        <div class="p-2 bg-primary">123</div>
+      </div>
+      <div class="col">
+        <div class="p-2 bg-primary">xyz</div>
+      </div>
+    </div>
+  </div>
+
+  <pre class="border text-info m-3"><code>
+    <span class="text-white">...</span>
+    &lt;div class="<span class="text-white">col-2</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    &lt;div class="<span class="text-white">col-7</span>"&gt;<span class="text-white">...</span> &lt;/div&gt;
+    &lt;div class="<span class="text-white">col-auto</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    <span class="text-white">...</span>
+  </code></pre>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+        <div class="p-2 bg-primary">abc</div>
+      </div>
+      <div class="col-7">
+        <div class="p-2 bg-primary">123</div>
+      </div>
+      <div class="col-auto">
+        <div class="p-2 bg-primary">xyz</div>
+      </div>
+    </div>
+  </div>
+
+  <pre class="border text-info m-3"><code>
+    <span class="text-white">...</span>
+    &lt;div class="<span class="text-white">col-5</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    &lt;div class="<span class="text-white">col-3</span>"&gt;<span class="text-white">...</span> &lt;/div&gt;
+    &lt;div class="<span class="text-white">col-4</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    &lt;div class="<span class="text-white">col-6</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    <span class="text-white">...</span>
+  </code></pre>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-5">
+        <div class="p-2 bg-primary">abc</div>
+      </div>
+      <div class="col-3">
+        <div class="p-2 bg-primary">123</div>
+      </div>
+      <div class="col-4">
+        <div class="p-2 bg-primary">xyz</div>
+      </div>
+      <div class="col-6">
+        <div class="p-2 bg-secondary">the rest</div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <p class="mx-3 mt-5">Breakpoints can be added for different layouts depending of the screen. They can be "sm", "md",
+    "lg", "xl", "xxl", or just nothing (which is "xs"). If no "xs" class is defined, then the elements will occupy the
+    whole row at that width.</p>
+  <p class="mx-3 fst-italic">Keep in mind that smaller classes apply also to larger screens, unless overridden by larger
+    classes.</p>
+  <pre class="border text-info m-3"><code>
+    <span class="text-white">...</span>
+    &lt;div class="<span class="text-white">col-sm-6   col-md-3     col-xl</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    &lt;div class="<span class="text-white">col-6      col-sm-auto  col-md-3</span>"&gt;<span class="text-white">...</span> &lt;/div&gt;
+    &lt;div class="<span class="text-white">col-sm     col-md-6     col-xl</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    <span class="text-white">...</span>
+  </code></pre>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-3 col-xl">
+        <div class="p-2 bg-danger">abc</div>
+      </div>
+      <div class="col-6 col-sm-auto col-md-3">
+        <div class="p-2 bg-warning text-dark">123</div>
+      </div>
+      <div class="col-sm col-md-6 col-xl">
+        <div class="p-2 bg-success">xyz</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="m-3">Add the "row-cols-" class to the "row" element to specify the number of columns (from 1 to 6, or auto).
+    <i>You can also use breakpoints with this class.</i>
+  </p>
+  <pre class="border text-info m-3"><code>
+    <span class="text-white">...</span>
+    &lt;div class="<span class="text-white">row row-cols-4</span>"&gt;
+      &lt;div class="<span class="text-white">col</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+      <span class="text-white">... (12 times)</span>
+    &lt;/div&gt;
+      <span class="text-white">...</span>
+  </code></pre>
+  <div class="container-fluid mb-3">
+    <div class="row row-cols-4">
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+      <div class="col">
+        <div class=" p-2 bg-danger">abc</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="m-3">If the 12 grid is not exceeded, you can use the "justify-content" class to align the items. <i>Again,
+      breakpoints are valid here too.</i></p>
+  <pre class="border text-info m-3"><code>
+    <span class="text-white">...</span>
+    &lt;div class="<span class="text-white">row justify-content-between</span>"&gt;
+      &lt;div class="<span class="text-white">col-3</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+      &lt;div class="<span class="text-white">col-3</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+      &lt;div class="<span class="text-white">col-3</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    &lt;/div&gt;
+    <span class="text-white">...</span>
+  </code></pre>
+  <div class="container-fluid mb-3">
+    <div class="row justify-content-between">
+      <div class="col-3">
+        <div class=" p-2 text-bg-info">1</div>
+      </div>
+      <div class="col-3">
+        <div class=" p-2 text-bg-info">2</div>
+      </div>
+      <div class="col-3">
+        <div class=" p-2 text-bg-info">3</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

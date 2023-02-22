@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <title>Box Model</title>
+</head>
+
+<body class="container text-bg-dark">
+  <h1 class="display-1 my-3">Box Model</h1>
+
+  <h2>Margin and Padding</h2>
+  <p>They have the "m" and "p" prefixes respectively.</p>
+
+  <p>Sizes can vary from "0 to 5" and <b>auto</b>.</p>
+  <div class="container row">
+    <pre class="border text-info col-7"><code>
+  &lt;div class="<span class="text-white">p-3</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="border border-warning p-3">
+        abc
+      </div>
+    </div>
+  </div>
+
+  <p>To be more specific, you can also add more prefixes.</p>
+  <ul>
+    <li><b>t</b> (top), <b>b</b> (bottom), <b>y</b> (both top and bottom)</li>
+    <li><b>s</b> (left), <b>e</b> (right), <b>x</b> (both left and right)</li>
+  </ul>
+  <div class="container row">
+    <pre class="border text-info col-8"><code>
+  &lt;div class="<span class="text-white">mt-4 ms-2</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="border border-success mt-4 ms-2">
+        123
+      </div>
+    </div>
+  </div>
+
+  <h2>Border</h2>
+  <p>First, use the class "border" to define the sides. You can even be more specific (top, bottom, start,
+    end). Or contrast sides by adding "0".</p>
+  <div class="container row">
+    <pre class="border text-info col-8"><code>
+  &lt;div class="<span class="text-white">border</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">border-start</span>"&gt;
+  <span class="text-white">...</span>
+  &lt;/div&gt;
+
+  &lt;div class="<span class="text-white">border border-bottom-0</span>"&gt;
+  <span class="text-white">...</span>
+  &lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="border text-center m-4 p-2">
+        border
+      </div>
+      <div class="border-start text-center m-4 p-2">
+        start
+      </div>
+      <div class="border border-bottom-0 m-4 p-2">
+        - bottom
+      </div>
+    </div>
+  </div>
+
+  <p>After defining the sides, you can start to add styles like colors.</p>
+  <div class="container row">
+    <pre class="border text-info col-9"><code>
+  &lt;div class="<span class="text-white">border border-info</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">border-top border-danger</span>"&gt;
+  <span class="text-white">...</span>
+  &lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="border border-info text-center m-3 p-2">
+        info
+      </div>
+      <div class="border-top border-danger m-3 p-2">
+        danger
+      </div>
+    </div>
+  </div>
+
+  <p>Or width (these values only work with the "border" class).</p>
+  <div class="container row">
+    <pre class="border text-info col-9"><code>
+  &lt;div class="<span class="text-white">border border-2</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">border-end border-3</span>"&gt;
+  <span class="text-white">...</span>
+  &lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="border border-2 m-3 me-0 p-2">
+        border
+      </div>
+      <div class="border-end border-3 text-center m-3 me-0 p-2">
+        end
+      </div>
+    </div>
+  </div>
+
+  <h2>Border-radius</h2>
+  <p>Additionally, you can modify the border-radius with the "rounded" class, without having to add borders. You
+    can either:</p>
+  <ul>
+    <li>Add the size of corners (from 0 to 5)</li>
+    <li>Define the sides (top, bottom, start, end)</li>
+    <li>Or add special borders (circle, pill)</li>
+  </ul>
+
+  <div class="container row">
+    <pre class="border text-info col-8"><code>
+  &lt;div class="<span class="text-white">rounded border</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">rounded-end</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">rounded-4</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="rounded border bg-gradient text-center m-2 me-0 p-2">
+        rounded
+      </div>
+      <div class="rounded-end bg-primary m-2 me-0 p-2">
+        rounded-end
+      </div>
+      <div class="rounded-4 bg-black text-center m-2 me-0 p-2">
+        rounded-4
+      </div>
+    </div>
+  </div>
+
+  <div class="container row">
+    <pre class="border text-info col-8"><code>
+  &lt;div class="<span class="text-white">rounded-circle</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">rounded-pill</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    </code></pre>
+    <div class="col-auto">
+      <div class="rounded-circle bg-secondary m-2 p-2">
+        rounder-circle
+      </div>
+      <div class="rounded-pill text-bg-light text-center m-2 p-2">
+        rounded-pill
+      </div>
+    </div>
+  </div>
+
+  <h2>Box shadow</h2>
+  <p>You can add shadows with the "shadow" class, they could also be smaller (sm) or larger (lg).</p>
+  <div class="container row">
+    <pre class="border text-info col-7"><code>
+  &lt;div class="<span class="text-white">shadow-sm</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">shadow</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+
+  &lt;div class="<span class="text-white">shadow-lg</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    </code></pre>
+    <div class="col-auto bg-white text-dark rounded ms-2 mb-3">
+      <div class="row px-3 pt-2">
+        <div class="shadow-sm rounded col-auto m-2 p-2">smaller</div>
+        <div class="shadow rounded col-auto m-2 p-2">regular</div>
+      </div>
+      <div class="shadow-lg rounded text-center mx-auto w-50 mt-3 p-1">larger</div>
+    </div>
+  </div>
+
+</body>
+
+</html>
