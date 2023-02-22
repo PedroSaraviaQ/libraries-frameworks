@@ -147,7 +147,8 @@
   </div>
 
   <p class="m-3">Add the "row-cols-" class to the "row" element to specify the number of columns (from 1 to 6, or auto).
-    <i>You can also use breakpoints with this class.</i></p>
+    <i>You can also use breakpoints with this class.</i>
+  </p>
   <pre class="border text-info m-3"><code>
     <span class="text-white">...</span>
     &lt;div class="<span class="text-white">row row-cols-4</span>"&gt;
@@ -193,6 +194,31 @@
       </div>
       <div class="col">
         <div class=" p-2 bg-danger">abc</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="m-3">If the 12 grid is not exceeded, you can use the "justify-content" class to align the items. <i>Again,
+      breakpoints are valid here too.</i></p>
+  <pre class="border text-info m-3"><code>
+    <span class="text-white">...</span>
+    &lt;div class="<span class="text-white">row justify-content-between</span>"&gt;
+      &lt;div class="<span class="text-white">col-3</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+      &lt;div class="<span class="text-white">col-3</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+      &lt;div class="<span class="text-white">col-3</span>"&gt;<span class="text-white">...</span>&lt;/div&gt;
+    &lt;/div&gt;
+    <span class="text-white">...</span>
+  </code></pre>
+  <div class="container-fluid mb-3">
+    <div class="row justify-content-between">
+      <div class="col-3">
+        <div class=" p-2 text-bg-info">1</div>
+      </div>
+      <div class="col-3">
+        <div class=" p-2 text-bg-info">2</div>
+      </div>
+      <div class="col-3">
+        <div class=" p-2 text-bg-info">3</div>
       </div>
     </div>
   </div>
