@@ -22,3 +22,4 @@ yarn-error.log*
 #**************************** PYTHON ****************************
 .venv
 *.sqlite3
+.pytest_cache
