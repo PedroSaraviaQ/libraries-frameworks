@@ -1,0 +1,7 @@
+-i https://pypi.org/simple
+attrs==22.2.0 ; python_version >= '3.6'
+colorama==0.4.6 ; sys_platform == 'win32'
+iniconfig==2.0.0 ; python_version >= '3.7'
+packaging==23.0 ; python_version >= '3.7'
+pluggy==1.0.0 ; python_version >= '3.6'
+pytest==7.2.1
