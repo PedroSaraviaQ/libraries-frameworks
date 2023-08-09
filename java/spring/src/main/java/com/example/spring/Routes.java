@@ -2,8 +2,6 @@ package com.example.spring;
 
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
-
 //* The @RestController annotation helps to create a REST-ful controller in a class.
 @RestController
 public class Routes {
@@ -46,18 +44,33 @@ class ApiRoutes {
         return "Item " + id;
     }
 
-    //! If not, you must specify the argument name.
+    //* You can also omit them for multiple path variables.
+    @GetMapping("/item/{category}/{id}")
+    public String Items(@PathVariable String category, @PathVariable int id) {
+        return category + " item " + id;
+    }
+
+    //! However, you can't omit the annotation argument if it doesn't match the method parameter.
     @GetMapping("/item/new/{productId}")
     public String NewItem(@PathVariable("productId") int id) {
         return "New item " + id;
     }
 
-    //! You also must specify if there are multiple path variables.
-    @GetMapping("/item/{category}/{id}")
-    public String Items(@PathVariable("category") String category, @PathVariable("id") int id) {
-        return category + " item " + id;
+    //* You can also use query parameters.
+    //* You can omit the annotation argument even if there are multiple parameters too.
+    @GetMapping("/login")
+    public String Login(@RequestParam String name, @RequestParam String password) {
+        return "Hello " + name + ", your password is " + password;
     }
 
+    //* When you want the parameter to be optional, you can use the required argument.
+    @GetMapping("/user")
+    public String User(@RequestParam(required = false) String name) {
+        if (name == null) {
+            return "Hello user!";
+        }
+        return "Hello " + name;
+    }
 
     //! Be careful when using "" and "/" in the routes, because they are different in some cases.
     @GetMapping("")
