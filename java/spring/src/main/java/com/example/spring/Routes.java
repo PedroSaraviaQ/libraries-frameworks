@@ -2,6 +2,9 @@ package com.example.spring;
 
 import org.springframework.web.bind.annotation.*;
 
+//* When initializing a Spring project, you should add the following dependencies:
+//* spring-boot-starter-web, spring-boot-devtools.
+
 //* The @RestController annotation helps to create a REST-ful controller in a class.
 @RestController
 public class Routes {
