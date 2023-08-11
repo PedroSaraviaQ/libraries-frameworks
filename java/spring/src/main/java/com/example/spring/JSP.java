@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 //* In order to use JSP, you need to add the following dependencies:
-//* tomcat-embed-jasper, jakarta.servlet.jsp.jstl (from glassfish)
+//* tomcat-embed-jasper, jakarta.servlet.jsp.jstl (from glassfish), jakarta.servlet.jsp.jstl-api (from jakarta)
 
 //* Create "webapp/WEB-INF" folder inside "main" to store the JSP files
 //* And write "spring.mvc.view.prefix=/WEB-INF/" in the "application.properties" file
