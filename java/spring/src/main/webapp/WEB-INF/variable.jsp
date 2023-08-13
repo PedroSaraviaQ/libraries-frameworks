@@ -17,5 +17,15 @@
         <%--* The variable goes like if it was Java--%>
         <h1>Hello <c:out value="${name}"/>!</h1>
 
+        <%--* The "action" attribute takes the value of the POST request's URL--%>
+        <form action="/register" method="post">
+
+            <%--* The "name" attribute is the name of the variable that will be sent as a parameter--%>
+            <label>Username: <input type="text" name="username"></label>
+            <label>Password: <input type="password" name="password"></label>
+                
+            <button>Submit</button>
+        </form>
+
     </body>
 </html>
