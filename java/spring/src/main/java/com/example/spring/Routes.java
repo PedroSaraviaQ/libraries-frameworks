@@ -43,46 +43,65 @@ class ApiRoutes {
     //! Spring handles the data type conversion automatically, unlike Express.js.
     //* If the path variable matches the method parameter, you can omit the argument name.
     @GetMapping("/item/{id}")
-    public String Item(@PathVariable int id) {
+    public String item(@PathVariable int id) {
         return "Item " + id;
     }
 
     //* You can also omit them for multiple path variables.
     @GetMapping("/item/{category}/{id}")
-    public String Items(@PathVariable String category, @PathVariable int id) {
+    public String items(@PathVariable String category, @PathVariable int id) {
         return category + " item " + id;
     }
 
     //! However, you can't omit the annotation argument if it doesn't match the method parameter.
     @GetMapping("/item/new/{productId}")
-    public String NewItem(@PathVariable("productId") int id) {
+    public String newItem(@PathVariable("productId") int id) {
         return "New item " + id;
     }
 
     //* You can also use query parameters.
     //* You can omit the annotation argument even if there are multiple parameters too.
     @GetMapping("/login")
-    public String Login(@RequestParam String name, @RequestParam String password) {
+    public String login(@RequestParam String name, @RequestParam String password) {
         return "Hello " + name + ", your password is " + password;
     }
 
     //* When you want the parameter to be optional, you can use the required argument.
     @GetMapping("/user")
-    public String User(@RequestParam(required = false) String name) {
+    public String user(@RequestParam(required = false) String name) {
         if (name == null) {
             return "Hello user!";
         }
         return "Hello " + name;
     }
 
+    //* But when those values are optional, you should use wrappers instead of primitives
+    //* to take into account the "null" cases.
+    @GetMapping("/product")
+    public String product(@RequestParam(required = false) Integer id) {
+        if (id == null) {
+            return "Hello product!";
+        }
+        return "Hello product " + id + "!";
+    }
+
+    //! So this would throw an error because primitives can't be null.
+    // @GetMapping("/products")
+    // public String products(@RequestParam(required = false) int id) {
+    //     if (id == null) {
+    //         return "Hello product!";
+    //     }
+    //     return "Hello product " + id + "!";
+    // }
+
     //! Be careful when using "" and "/" in the routes, because they are different in some cases.
     @GetMapping("")
-    public String NoSlash() {
+    public String noSlash() {
         return "Without slash!";
     }
 
     @GetMapping("/")
-    public String Slash() {
+    public String slash() {
         return "With slash. See the difference?";
     }
 }
