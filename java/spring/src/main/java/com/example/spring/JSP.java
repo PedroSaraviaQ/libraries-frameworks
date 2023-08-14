@@ -1,5 +1,6 @@
 package com.example.spring;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -42,10 +43,21 @@ class Forms {
 
     //* To retrieve the data from the form, you can use the "@RequestParam" annotation
     @PostMapping("/register")
-    public String register(@RequestParam String username, @RequestParam String password) {
+    public String register(@RequestParam String username, @RequestParam String password, HttpSession session) {
 
         //* Optionally, you can print the values to the console to check if it's working.
         System.out.println(username + ": " + password);
+
+        //* If you want to have the values in different routes, you can use sessions to store them.
+        session.setAttribute("username", username);
+
+        //* If for some reason you want access to the session, you can get it by casting them.
+        //! Be careful, use wrapper classes instead of primitives here too.
+        String user = (String) session.getAttribute("username");
+
+        //* Remember to remove the session variables when you don't need them anymore.
+        //! Because if you don't, the values will be stored in the session until it expires.
+        // session.removeAttribute("username");
 
         //* If you want to return a JSP file after a POST request, you need to use the "redirect" keyword
         return "redirect:/welcome";
