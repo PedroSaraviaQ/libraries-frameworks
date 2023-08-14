@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 //* In order to use JSP, you need to add the following dependencies:
 //* tomcat-embed-jasper, jakarta.servlet.jsp.jstl (from glassfish), jakarta.servlet.jsp.jstl-api (from jakarta)
@@ -43,7 +44,8 @@ class Forms {
 
     //* To retrieve the data from the form, you can use the "@RequestParam" annotation
     @PostMapping("/register")
-    public String register(@RequestParam String username, @RequestParam String password, HttpSession session) {
+    public String register(@RequestParam String username, @RequestParam String password,
+                           HttpSession session, RedirectAttributes redirectAttributes) {
 
         //* Optionally, you can print the values to the console to check if it's working.
         System.out.println(username + ": " + password);
@@ -58,6 +60,9 @@ class Forms {
         //* Remember to remove the session variables when you don't need them anymore.
         //! Because if you don't, the values will be stored in the session until it expires.
         // session.removeAttribute("username");
+
+        //* Flash attributes are similar to sessions, but they only last for the next request.
+        redirectAttributes.addFlashAttribute("message", "Congratulations!");
 
         //* If you want to return a JSP file after a POST request, you need to use the "redirect" keyword
         return "redirect:/welcome";
