@@ -34,6 +34,15 @@ public class JSP {
         //* The arguments would be the name of the variable as String and the value.
         model.addAttribute("name", "Pedro");
 
+        //* You can also pass a bean as a variable
+        //? But the class must be public when working with JSP files (not sure why)
+        BeanJSP animal = new BeanJSP();
+        animal.setName("cat");
+        animal.setColor("black");
+
+        //* Just pass the object as the value
+        model.addAttribute("animal", animal);
+
         return "variable.jsp";
     }
 }
