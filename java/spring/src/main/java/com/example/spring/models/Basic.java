@@ -7,6 +7,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 //* Basic representation of a model, they should be in the "models" package.
+//! It is recommended to first design the schema of the database and then create the models.
+//! If you create the model first, and then delete an attribute, it will not be deleted from the database.
 
 //* "@Entity" indicates that the class is a model.
 @Entity
@@ -69,6 +71,10 @@ public class Basic {
         return this.password;
     }
 
+    public Integer getAge() {
+        return age;
+    }
+
     public Date getCreatedAt() {
         return this.createdAt;
     }
@@ -87,6 +93,10 @@ public class Basic {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
     public void setCreatedAt(Date createdAt) {
