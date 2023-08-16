@@ -17,7 +17,7 @@
         <%--* The variable goes like if it was Java--%>
         <h1>Hello <c:out value="${name}"/>!</h1>
 
-        <%--* Then you can get the values as properties of the object--%>
+        <%--* When you're calling the property of an object, you're actually calling the getter--%>
         <h2>My <c:out value="${animal.name}"/> is <c:out value="${animal.color}"/>.</h2>
         <%--* You can even call methods--%>
         <p><c:out value="${animal.introduce()}"/></p>
