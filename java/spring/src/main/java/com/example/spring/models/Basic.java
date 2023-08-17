@@ -32,6 +32,9 @@ public class Basic {
 
     //* "@Email": must be a valid email.
     @Email
+
+    //* "@Column(unique = true)": cannot be repeated.
+    @Column(unique = true)
     private String email;
 
     //* "@NotBlank": includes @NotEmpty and cannot be blank (only whitespaces).
