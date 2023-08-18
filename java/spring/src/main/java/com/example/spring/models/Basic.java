@@ -28,7 +28,9 @@ public class Basic {
     private String name;
 
     //* "@NotEmpty": includes @NotNull and cannot be empty.
-    @NotEmpty
+    //! The annotations can have a message attribute to show a custom message
+    //! when the validation fails, it can even be used in JSP files.
+    @NotEmpty(message = "Email must not be empty")
 
     //* "@Email": must be a valid email.
     @Email
