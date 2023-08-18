@@ -5,10 +5,11 @@
     <head>
         <title>Variables in JSP</title>
 
-        <%-- To add static content, you can create the "css" and "js" folders inside "static"--%>
+        <%-- To add static content, you can create the "/css" and "/js" folders inside "static"--%>
         <%-- Then just reference them by those folders and the file name--%>
-        <link rel="stylesheet" href="css/style.css">
-        <script src="js/alert.js"></script>
+        <%-- The "/" at the beginning is important when visiting different pages--%>
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/js/alert.js"></script>
 
     </head>
 
