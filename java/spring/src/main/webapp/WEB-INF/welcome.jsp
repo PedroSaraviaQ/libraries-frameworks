@@ -7,10 +7,10 @@
     </head>
     <body>
 
-        <%--* You just add the session variables like they were model variables. --%>
+        <%-- You just add the session variables like they were model variables. --%>
         <h1>Registration Complete, <c:out value="${username}"/></h1>
 
-        <%--* The same goes for the flash attributes. --%>
+        <%-- The same goes for the flash attributes. --%>
         <h2><c:out value="${message}"/></h2>
 
     </body>

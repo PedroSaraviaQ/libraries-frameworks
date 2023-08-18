@@ -12,19 +12,19 @@
     </head>
     <body>
 
-        <%--* The form and other used tags have "form:" before them --%>
-        <%--* The form tag has a model attribute that takes the parameter from the controller --%>
+        <%-- The form and other used tags have "form:" before them --%>
+        <%-- The form tag has a model attribute that takes the parameter from the controller --%>
         <form:form action="/model" method="post" modelAttribute="basic">
 
-            <%--? Each field goes inside a paragraph tag --%>
+            <%-- Each field goes inside a paragraph tag --%>
             <p>
-                    <%--* Each tag has a "path" attribute that takes the name of the field --%>
-                    <%--* The "for" and "id" attributes are not needed --%>
+                    <%-- Each tag has a "path" attribute that takes the name of the field --%>
+                    <%-- The "for" and "id" attributes are not needed --%>
                 <form:label path="name">Name:</form:label>
                 <form:input type="text" path="name"/>
 
-                    <%--* An "errors" is provided by the form taglib to display errors --%>
-                    <%--* You can customize it with "class" or "cssClass" --%>
+                    <%-- An "errors" is provided by the form taglib to display errors --%>
+                    <%-- You can customize it with "class" or "cssClass" --%>
                 <form:errors cssClass="error" path="name"/>
             </p>
             <p>
@@ -47,7 +47,7 @@
 
         <ul>
             <c:forEach items="${basics}" var="basic">
-                <li><c:out value="${basic.name}"/></li>
+                <li><a href="/model/${basic.id}"><c:out value="${basic.name}"/></a></li>
             </c:forEach>
         </ul>
     </body>

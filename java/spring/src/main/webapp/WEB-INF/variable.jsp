@@ -5,8 +5,8 @@
     <head>
         <title>Variables in JSP</title>
 
-        <%--* To add static content, you can create the "css" and "js" folders inside "static"--%>
-        <%--* Then just reference them by those folders and the file name--%>
+        <%-- To add static content, you can create the "css" and "js" folders inside "static"--%>
+        <%-- Then just reference them by those folders and the file name--%>
         <link rel="stylesheet" href="css/style.css">
         <script src="js/alert.js"></script>
 
@@ -14,18 +14,18 @@
 
     <body>
 
-        <%--* The variable goes like if it was Java--%>
+        <%-- The variable goes like if it was Java--%>
         <h1>Hello <c:out value="${name}"/>!</h1>
 
-        <%--* When you're calling the property of an object, you're actually calling the getter--%>
+        <%-- When you're calling the property of an object, you're actually calling the getter--%>
         <h2>My <c:out value="${animal.name}"/> is <c:out value="${animal.color}"/>.</h2>
-        <%--* You can even call methods--%>
+        <%-- You can even call methods--%>
         <p><c:out value="${animal.introduce()}"/></p>
 
-        <%--* The "action" attribute takes the value of the POST request's URL--%>
+        <%-- The "action" attribute takes the value of the POST request's URL--%>
         <form action="/register" method="post">
 
-            <%--* The "name" attribute is the name of the variable that will be sent as a parameter--%>
+            <%-- The "name" attribute is the name of the variable that will be sent as a parameter--%>
             <label>Username: <input type="text" name="username"></label>
             <label>Password: <input type="password" name="password"></label>
 
