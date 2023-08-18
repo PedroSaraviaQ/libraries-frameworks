@@ -37,11 +37,21 @@ public class BasicService {
 
         //* "Optional" is used to avoid null pointer exceptions.
         Optional<Basic> optionalBasic = basicRepository.findById(id);
-        
+
         if (optionalBasic.isPresent()) {
             return optionalBasic.get();
         } else {
             return null;
         }
+    }
+
+    public Basic update(Basic basic) {
+        //* The "save" method can also be used to update an element.
+        return basicRepository.save(basic);
+    }
+
+    public void deleteById(Integer id) {
+        //* We can just delete with the id.
+        basicRepository.deleteById(id);
     }
 }

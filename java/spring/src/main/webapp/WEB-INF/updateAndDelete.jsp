@@ -12,19 +12,11 @@
     </head>
     <body>
 
-        <%-- The form and other used tags have "form:" before them --%>
-        <%-- The form tag has a model attribute that takes the parameter from the controller --%>
-        <form:form action="/model" method="post" modelAttribute="basic">
-
-            <%-- Each field goes inside a paragraph tag --%>
+        <%-- The form is the same, just change the action to the correct url --%>
+        <form:form action="/model/${basic.id}" method="post" modelAttribute="basic">
             <p>
-                    <%-- Each tag has a "path" attribute that takes the name of the field --%>
-                    <%-- The "for" and "id" attributes are not needed --%>
                 <form:label path="name">Name:</form:label>
                 <form:input type="text" path="name"/>
-
-                    <%-- An "errors" is provided by the form taglib to display errors --%>
-                    <%-- You can customize it with "class" or "cssClass" --%>
                 <form:errors cssClass="error" path="name"/>
             </p>
             <p>
@@ -43,12 +35,12 @@
                 <form:errors cssClass="error" path="age"/>
             </p>
             <input type="submit" value="Submit"/>
+
         </form:form>
 
-        <ul>
-            <c:forEach items="${basics}" var="basic">
-                <li><a href="/model/${basic.id}"><c:out value="${basic.name}"/>!</a></li>
-            </c:forEach>
-        </ul>
+        <form:form action="/model/${basic.id}/delete" method="post" modelAttribute="basic">
+            <button>Delete</button>
+        </form:form>
+
     </body>
 </html>

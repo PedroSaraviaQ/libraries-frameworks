@@ -64,6 +64,10 @@ public class Basic {
     public Basic() {
     }
 
+    public Integer getId() {
+        return id;
+    }
+
     public String getName() {
         return this.name;
     }
@@ -86,6 +90,10 @@ public class Basic {
 
     public Date getUpdatedAt() {
         return this.updatedAt;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public void setName(String name) {
