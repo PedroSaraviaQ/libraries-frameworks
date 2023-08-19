@@ -29,5 +29,9 @@
             <p>Iteration <c:out value="${i}"/></p>
         </c:forEach>
 
+        <%-- Although the use of "c:out" is not mandatory, it is recommended to prevent XSS attacks --%>
+        <%-- Specially when working with user input, dynamic content, and links --%>
+        <p>${10+1}</p>
+
     </body>
 </html>
