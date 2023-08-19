@@ -33,5 +33,9 @@
         <%-- Specially when working with user input, dynamic content, and links --%>
         <p>${10+1}</p>
 
+        <%-- You can implement Template Inheritance with the "include" tag --%>
+        <%-- This is specially used with static content --%>
+        <%@include file="template.jsp" %>
+
     </body>
 </html>
