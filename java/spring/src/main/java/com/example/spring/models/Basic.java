@@ -6,54 +6,52 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-//* Basic representation of a model, they should be in the "models" package.
-//! It is recommended to first design the schema of the database and then create the models.
-//! If you create the model first, and then delete an attribute, it will not be deleted from the database.
+//* Models are like Java Beans. They should be in the "models" package of the project.
+//! First design the schema of the database and then create the models.
 
-//* "@Entity" indicates that the class is a model.
+//* "@Entity": The class is a model.
 @Entity
-//* @Table indicates the name of the table in the database with its attribute.
+//* @Table: Name of the table in the database.
 @Table(name = "basics")
 
 public class Basic {
 
-    //* "@Id" indicates that the attribute is the primary key.
+    //* "@Id": Primary key.
     @Id
-    //* "@GeneratedValue" indicates that the attribute is auto-incremented.
+    //* "@GeneratedValue": Auto-incremented.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    //* "@NotNull": cannot be null.
+    //* "@NotNull": Not null.
     @NotNull
     private String name;
 
-    //* "@NotEmpty": includes @NotNull and cannot be empty.
-    //! The annotations can have a message attribute to show a custom message
-    //! when the validation fails, it can even be used in JSP files.
+    //* "@NotEmpty": @NotNull and not empty.
+    //! The "message" attribute is shown when the validation fails in the view.
     @NotEmpty(message = "Email must not be empty")
 
-    //* "@Email": must be a valid email.
+    //* "@Email": Valid email.
     @Email
 
-    //* "@Column(unique = true)": cannot be repeated.
+    //* "@Column(unique = true)": Unique value.
     @Column(unique = true)
     private String email;
 
-    //* "@NotBlank": includes @NotEmpty and cannot be blank (only whitespaces).
+    //* "@NotBlank": @NotEmpty and no whitespaces ("  ").
     @NotBlank
 
-    //* "@Size": Their "min" and "max" attributes indicate the valid size, works with arrays-like objects.
+    //* "@Size": Size for arrays-like objects.
     @Size(min = 8)
     private String password;
 
-    //* "@Min" and "@Max": Their values indicate the valid range, works with numbers.
+    //* "@Min" and "@Max": Range for numbers.
     @Min(18)
     private Integer age;
 
-    //* @Column(updatable = false): cannot be updated.
+    //* @Column(updatable = false): Can't be updated.
     @Column(updatable = false)
 
-    //* "@DateTimeFormat": lets you specify the format of the date.
+    //* "@DateTimeFormat": Format of date.
     @DateTimeFormat(pattern = "yyyy-MM-dd")
 
     private Date createdAt;
@@ -120,13 +118,13 @@ public class Basic {
         this.updatedAt = updatedAt;
     }
 
-    //* "@PrePersist": It is executed before the object is created.
+    //* "@PrePersist": Executed before object is created.
     @PrePersist
     protected void onCreate() {
         this.createdAt = new Date();
     }
 
-    //* "@PreUpdate": It is executed before the object is updated.
+    //* "@PreUpdate": Executed before object is updated.
     @PreUpdate
     protected void onUpdate() {
         this.updatedAt = new Date();
