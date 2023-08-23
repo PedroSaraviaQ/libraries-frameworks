@@ -26,12 +26,10 @@ public class JSP {
     }
 
     @RequestMapping("/variable")
-    //* If you want to pass a variable to the JSP, you can use the
-    //* "Model" class by passing as a parameter to the method
+    //* If you want to pass a variable to the JSP, you can use the "Model" class
     public String variable(Model model) {
 
-        //* Then you can use the "addAttribute" method to pass the variable
-        //* The arguments would be the name of the variable as String and the value.
+        //* Then use the "addAttribute" method to pass the variable (name, value)
         model.addAttribute("name", "Pedro");
 
         //* You can also pass a bean as a variable
@@ -40,43 +38,41 @@ public class JSP {
         animal.setName("cat");
         animal.setColor("black");
 
-        //* Just pass the object as the value
         model.addAttribute("animal", animal);
-
         return "variable.jsp";
     }
 }
 
-//* Another use of "@Controller" is to handle forms with POST requests.
 @Controller
 class Forms {
 
-    //* To retrieve the data from the form, you can use the "@RequestParam" annotation
     @PostMapping("/register")
     public String register(@RequestParam String username, @RequestParam String password,
                            HttpSession session, RedirectAttributes redirectAttributes) {
 
-        //* Optionally, you can print the values to the console to check if it's working.
+        //* To retrieve the data from the form, use the "@RequestParam" annotation
+        // TODO: you can print the values to the console to check if it's working.
         System.out.println(username + ": " + password);
 
-        //* If you want to have the values in different routes, you can use sessions to store them.
+        //* If you want to have values in different routes, you can use the "HttpSession" class
+        //* With the "setAttribute" method, you store the values in the session.
         session.setAttribute("username", username);
 
-        //* If for some reason you want access to the session, you can get it by casting them.
+        //* To access the value, use the "getAttribute" and cast it to the correct type.
         //! Be careful, use wrapper classes instead of primitives here too.
         String user = (String) session.getAttribute("username");
 
-        //* Remember to remove the session variables when you don't need them anymore.
-        //! Because if you don't, the values will be stored in the session until it expires.
+        //* To remove the value from the session, use the "removeAttribute" method.
+        //! Remember to remove the value when you don't need it anymore.
         // session.removeAttribute("username");
 
-        //* Flash attributes are similar to sessions, but they only last for the next request.
+        //* If you want to store a value only for the next request, use the "RedirectAttributes" class
+        //* Use the "addFlashAttribute" method to store the value.
         redirectAttributes.addFlashAttribute("message", "Congratulations!");
 
-        //* If you want to return a JSP file after a POST request, you need to use the "redirect" keyword
+        //* To return a JSP file after a POST request, you need to use the "redirect" keyword
+        //! If you do it without it, the POST request will be repeated if the user refreshes the page.
         return "redirect:/welcome";
-        //! While it's possible to do it without "redirect", it's not recommended
-        //! because it can repeat the POST request if the user refreshes the page.
     }
 
     //* This is the route that will be called after the POST request
