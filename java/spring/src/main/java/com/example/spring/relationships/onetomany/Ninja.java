@@ -1,4 +1,4 @@
-package com.example.spring.relations.onetomany;
+package com.example.spring.relationships.onetomany;
 
 import com.example.spring.models.SuperModel;
 import jakarta.persistence.*;

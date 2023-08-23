@@ -51,6 +51,7 @@ class Forms {
                            HttpSession session, RedirectAttributes redirectAttributes) {
 
         //* To retrieve the data from the form, use the "@RequestParam" annotation
+        //! The default value for inputs is "" instead of null, so it's best to use String here.
         // TODO: you can print the values to the console to check if it's working.
         System.out.println(username + ": " + password);
 
@@ -59,7 +60,7 @@ class Forms {
         session.setAttribute("username", username);
 
         //* To access the value, use the "getAttribute" and cast it to the correct type.
-        //! Be careful, use wrapper classes instead of primitives here too.
+        //! Be careful, use wrapper classes because the value could be null.
         String user = (String) session.getAttribute("username");
 
         //* To remove the value from the session, use the "removeAttribute" method.
