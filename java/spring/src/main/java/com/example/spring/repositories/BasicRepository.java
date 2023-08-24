@@ -17,6 +17,12 @@ import java.util.List;
 //* They extend "CrudRepository" and use the model and the primary key's type as generics.
 public interface BasicRepository extends CrudRepository<Basic, Integer> {
 
-    //* Those methods can also be overridden to provide more functionality.
+    //* Some basic methods are already provided by JPA, so they don't have to be implemented.
+    //* findById, findAll, existsById, save, deleteById, deleteAll, count.
+
+    //* However, you can still implement them to add more functionality.
     List<Basic> findAll();
+
+    //* Advanced methods can be created using the "Query Creation" from JPA.
+    Basic findByName(String name);
 }
