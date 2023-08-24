@@ -7,37 +7,42 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-//* This annotation tells Spring that this class is a service
+//* They should be classes, and stored in the "services" package.
+
+//* Services implement the business logic of the application and create
+//* their own methods using those provided by the repository.
+
+//* Tells Spring that it's a service
 @Service
 
 public class BasicService {
 
-    //* This is a dependency injection of the repository
+    //* To use the methods from the repository.
     private final BasicRepository basicRepository;
 
-    //* The constructor is used to inject the repository
+    //* The constructor ensures that the repository is assigned a value and is not null.
     public BasicService(BasicRepository basicRepository) {
         this.basicRepository = basicRepository;
     }
 
-    //* This method will return a list of all the elements in the database.
+    //* This will return a list of all the elements in the database.
     //! The methods doesn't have to match in name, but it's a good practice.
     public List<Basic> findAll() {
-        //* Just use the repository to find all the elements
+        //* Just use the repository to find all the elements.
         return basicRepository.findAll();
     }
 
-    //* This method will save a new element in the database.
     public Basic save(Basic basic) {
+        //* Saves a new element in the database.
         return basicRepository.save(basic);
     }
 
-    //* This method will find an element by its id.
     public Basic findById(Integer id) {
-
-        //* "Optional" is used to avoid null pointer exceptions.
+        //* Finds an element by its id.
+        //* "Optional" is used if the element is not found.
         Optional<Basic> optionalBasic = basicRepository.findById(id);
 
+        //* This code is used to return the element, or null if it's not found.
         if (optionalBasic.isPresent()) {
             return optionalBasic.get();
         } else {
@@ -51,7 +56,7 @@ public class BasicService {
     }
 
     public void deleteById(Integer id) {
-        //* We can just delete with the id.
+        //* Deletes with the id.
         basicRepository.deleteById(id);
     }
 }

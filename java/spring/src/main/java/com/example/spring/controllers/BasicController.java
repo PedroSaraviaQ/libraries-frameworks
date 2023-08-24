@@ -15,10 +15,10 @@ import java.util.List;
 @RequestMapping("/basic")
 public class BasicController {
 
-    //* This is a dependency injection of the service
+    //* To use the methods from the service.
     private final BasicService basicService;
 
-    //* The constructor is used to inject the service
+    //* The constructor ensures that the service is assigned a value and is not null.
     public BasicController(BasicService basicService) {
         this.basicService = basicService;
     }
@@ -26,10 +26,10 @@ public class BasicController {
     @GetMapping("")
     public String basics(Model model) {
 
-        //* The elements are retrieved from the database using the service
+        //* The elements are retrieved from the database
         List<Basic> basics = basicService.findAll();
 
-        //* And then they can just be added to the model
+        //* And then they are added to the model
         model.addAttribute("basics", basics);
 
         return "basic.jsp";
@@ -41,16 +41,16 @@ public class BasicController {
             @RequestParam String email, @RequestParam Integer age
     ) {
         try {
-            //* Create a new basic object
+            //* Create a new object
             Basic basic = new Basic();
 
-            //* Add the form data to the object
+            //* Then add the data to it
             basic.setName(name);
             basic.setEmail(email);
             basic.setPassword(password);
             basic.setAge(age);
 
-            //* And then save it using the service
+            //* And finally save it
             basicService.save(basic);
 
         } catch (IllegalArgumentException e) {

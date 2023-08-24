@@ -15,7 +15,7 @@
         </form>
 
         <ul>
-            <%-- The elements retrieved from the database are will be displayed here. --%>
+            <%-- The elements retrieved from the database will be displayed here. --%>
             <c:forEach items="${basics}" var="basic">
                 <li>
                     I'm <c:out value="${basic.name}"/>.
