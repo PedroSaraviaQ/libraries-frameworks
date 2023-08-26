@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//* The "@ModelAttribute" annotation is used when we have a lot of data to handle.
+//* "@ModelAttribute" is an easier way to handle forms.
+
+//* Instead of passing the "Model" class, you can pass the object itself with the annotation.
 
 @Controller
 @RequestMapping("/model")
@@ -23,29 +25,36 @@ public class FormAttribute {
     }
 
     @GetMapping("")
-    //* Even if the method doesn't use the model attribute, it must be passed if JSP file uses it.
-    public String form(Model model, @ModelAttribute("basic") Basic basic) {
+
+    //* Add it to the view to instantiate an empty object.
+    public String form(Model model, @ModelAttribute Basic basic) {
+
+        //! This code has anything to do with ModelAttribute, it's just to show a list of all the objects.
         List<Basic> basics = basicService.findAll();
         model.addAttribute("basics", basics);
+
         return "formModel.jsp";
     }
 
     @PostMapping("")
-    //* It's not obligatory, but if you want to handle errors, you must add
-    //* The "@Valid" annotation to the model attribute and the "BindingResult" parameter.
-    public String create(@Valid @ModelAttribute("basic") Basic basic, BindingResult result) {
-        //* To check if there are errors, use the "hasErrors" method.
+
+    //* To handle submission errors, add "@Valid" to the object and include "BindingResult" as a parameter.
+    public String create(@Valid @ModelAttribute Basic basic, BindingResult result) {
+
+        //* "hasErrors" is used to check for errors related to model constraints.
         if (result.hasErrors()) {
-            //* Then return the view that will show the errors.
+
+            //* If errors are present, return the view to display the error messages.
             return "formModel.jsp";
+
         }
-        //* If not, then save and redirect as a normal post method.
+
+        //* If no errors are present, save the form data as an object and redirect as normal.
         basicService.save(basic);
         return "redirect:/model";
     }
 
     @GetMapping("/{id}")
-    //* In this case, we're replacing the use of the model attribute with the model itself.
     public String getById(@PathVariable Integer id, Model model) {
         Basic basic = basicService.findById(id);
         model.addAttribute("basic", basic);
