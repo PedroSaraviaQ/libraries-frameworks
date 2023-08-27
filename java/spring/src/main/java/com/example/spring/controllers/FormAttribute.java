@@ -54,27 +54,37 @@ public class FormAttribute {
         return "redirect:/model";
     }
 
+    //* To update, the process is nearly the same as creating. Just pass the ID in the path.
+    @PostMapping("/{id}")
+
+    //! "@PathVariable" is not needed as the ID is automatically consumed by the object.
+    public String update(@Valid @ModelAttribute("basic") Basic basic, BindingResult result) {
+        if (result.hasErrors()) {
+            return "formModel.jsp";
+        }
+
+        //* The only difference in the method is the name for the service method.
+        basicService.update(basic);
+
+        return "redirect:/model";
+    }
+
+    //* To delete, you could use the ID in the path.
+    @PostMapping("/{id}/delete")
+
+    //! Since no object is passed, "@PathVariable" is needed to capture the ID.
+    public String delete(@PathVariable Integer id) {
+
+        //* Just pass the ID as an argument to the service method.
+        basicService.deleteById(id);
+
+        return "redirect:/model";
+    }
+
     @GetMapping("/{id}")
     public String getById(@PathVariable Integer id, Model model) {
         Basic basic = basicService.findById(id);
         model.addAttribute("basic", basic);
         return "updateAndDelete.jsp";
-    }
-
-    //* When we want to update, we need to pass the id in the path in order to find the object.
-    @PostMapping("/{id}")
-    public String update(@Valid @ModelAttribute("basic") Basic basic, BindingResult result) {
-        if (result.hasErrors()) {
-            return "formModel.jsp";
-        }
-        basicService.update(basic);
-        return "redirect:/model";
-    }
-
-    //* We can also delete an object, and then redirect to another page.
-    @PostMapping("/{id}/delete")
-    public String delete(@PathVariable Integer id) {
-        basicService.deleteById(id);
-        return "redirect:/model";
     }
 }

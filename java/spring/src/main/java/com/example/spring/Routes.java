@@ -42,7 +42,7 @@ class ApiRoutes {
         return "With slash. See the difference?";
     }
 
-    //* You can also use variables in the routes.
+    //* You can also use variables in the routes (between "{}").
     //! Spring handles the data type conversion automatically, unlike Express.js.
     //* If the path variable matches the method parameter, you can omit the argument name.
     @GetMapping("/item/{category}/{id}")
@@ -56,7 +56,7 @@ class ApiRoutes {
         return "New item " + id;
     }
 
-    //* You can also use query parameters.
+    //* You can also use query parameters (the ones after the "?" in the URL).
     //* You can omit the annotation argument even if there are multiple parameters too.
     @GetMapping("/login")
     public String login(@RequestParam String name, @RequestParam String password) {
