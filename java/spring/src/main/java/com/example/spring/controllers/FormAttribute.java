@@ -87,4 +87,6 @@ public class FormAttribute {
         model.addAttribute("basic", basic);
         return "updateAndDelete.jsp";
     }
+
+    //! You can still however use "@PutMapping" and "@DeleteMapping" to handle the requests.
 }

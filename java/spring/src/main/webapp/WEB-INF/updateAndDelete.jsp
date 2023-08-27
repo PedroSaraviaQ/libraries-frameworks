@@ -14,6 +14,12 @@
 
         <%-- The form is the same, just change the action to the correct url --%>
         <form:form action="/model/${basic.id}" method="post" modelAttribute="basic">
+
+            <%-- To use a PUT request, change the form's method to "put" --%>
+
+            <%-- And add a hidden input with the name "_method" and the value "put" inside the form --%>
+            <%-- <input type="hidden" name="_method" value="put"/> --%>
+
             <p>
                 <form:label path="name">Name:</form:label>
                 <form:input type="text" path="name"/>
@@ -35,10 +41,15 @@
                 <form:errors cssClass="error" path="age"/>
             </p>
             <input type="submit" value="Submit"/>
-
         </form:form>
 
         <form:form action="/model/${basic.id}/delete" method="post" modelAttribute="basic">
+
+            <%-- To use a DELETE request, change the form's method to "delete" --%>
+
+            <%-- And add also the same input but with the value "delete" --%>
+            <%-- <input type="hidden" name="_method" value="delete"/> --%>
+
             <button>Delete</button>
         </form:form>
 
