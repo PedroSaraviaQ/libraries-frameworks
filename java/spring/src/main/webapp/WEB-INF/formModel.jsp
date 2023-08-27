@@ -1,7 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-<%--* You must add this tag in order to use these types of forms --%>
+<%--* Add this tag to use this type of form --%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
@@ -12,37 +12,37 @@
     </head>
     <body>
 
-        <%-- The form and other used tags have "form:" before them --%>
-        <%-- The form tag has a model attribute that takes the parameter from the controller --%>
-        <form:form action="/model" method="post" modelAttribute="basic">
+        <%-- This special kind of form supports error validation, just add the "form:" prefix to the tags --%>
 
-            <%-- Each field goes inside a paragraph tag --%>
+        <%-- "modelAttribute" takes the name of the object that will be validated --%>
+        <form:form action="/model" method="post" modelAttribute="basic">
             <p>
-                    <%-- Each tag has a "path" attribute that takes the name of the field --%>
-                    <%-- The "for" and "id" attributes are not needed --%>
+                    <%-- Each tag uses "path" which takes the name of the property --%>
                 <form:label path="name">Name:</form:label>
+
+                    <%-- "for" and "id" are not needed, and "name" is replaced by "path" --%>
                 <form:input type="text" path="name"/>
 
-                    <%-- An "errors" is provided by the form taglib to display errors --%>
-                    <%-- You can customize it with "class" or "cssClass" --%>
-                <form:errors cssClass="error" path="name"/>
+                    <%-- An additional "errors" tag displays the constraint errors --%>
+                <form:errors class="error" path="name"/>
             </p>
             <p>
                 <form:label path="email">Email:</form:label>
                 <form:input type="email" path="email"/>
-                <form:errors cssClass="error" path="email"/>
+                <form:errors class="error" path="email"/>
             </p>
             <p>
                 <form:label path="password">Password:</form:label>
                 <form:input type="password" path="password"/>
-                <form:errors cssClass="error" path="password"/>
+                <form:errors class="error" path="password"/>
             </p>
             <p>
                 <form:label path="age">Age:</form:label>
                 <form:input type="number" path="age"/>
-                <form:errors cssClass="error" path="age"/>
+                <form:errors class="error" path="age"/>
             </p>
-            <input type="submit" value="Submit"/>
+            <%-- The object is automatically added to the model, and you don't need "@RequestParam" --%>
+            <button>Submit</button>
         </form:form>
 
         <ul>

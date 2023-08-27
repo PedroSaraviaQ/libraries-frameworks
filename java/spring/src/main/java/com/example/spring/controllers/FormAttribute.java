@@ -26,7 +26,7 @@ public class FormAttribute {
 
     @GetMapping("")
 
-    //* Add it to the view to instantiate an empty object.
+    //* Add it to the view to instantiate an empty object and link it to the form.
     public String form(Model model, @ModelAttribute Basic basic) {
 
         //! This code has anything to do with ModelAttribute, it's just to show a list of all the objects.
@@ -49,7 +49,7 @@ public class FormAttribute {
 
         }
 
-        //* If no errors are present, save the form data as an object and redirect as normal.
+        //* If no errors are present, save the form data as an object and redirect as usual.
         basicService.save(basic);
         return "redirect:/model";
     }
