@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-//* You can also create an API, just replace @Controller with @RestController
+//* To create an API, just replace "@Controller" with "@RestController"
 @RestController
 
 @RequestMapping("/api")
@@ -20,7 +20,8 @@ public class BasicAPI {
     }
 
     @GetMapping("/basics")
-    //* Instead of returning a JSP, we return a list of all the basics
+
+    //* Instead of returning a JSP view, we just return the objects.
     public List<Basic> getBasics() {
         return basicService.findAll();
     }
