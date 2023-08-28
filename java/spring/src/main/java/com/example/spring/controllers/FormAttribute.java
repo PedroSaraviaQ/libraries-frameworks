@@ -29,6 +29,10 @@ public class FormAttribute {
     //* Add it to the view to instantiate an empty object and link it to the form.
     public String form(Model model, @ModelAttribute Basic basic) {
 
+        //! The annotation has an argument to specify the name of the object in the view.
+        //! You must include it if the name of the object is different from the class name.
+        // @ModelAttribute("basic") NewBasic basic
+
         //! This code has anything to do with ModelAttribute, it's just to show a list of all the objects.
         List<Basic> basics = basicService.findAll();
         model.addAttribute("basics", basics);
@@ -58,7 +62,7 @@ public class FormAttribute {
     @PostMapping("/{id}")
 
     //! "@PathVariable" is not needed as the ID is automatically consumed by the object.
-    public String update(@Valid @ModelAttribute("basic") Basic basic, BindingResult result) {
+    public String update(@Valid @ModelAttribute Basic basic, BindingResult result) {
         if (result.hasErrors()) {
             return "formModel.jsp";
         }

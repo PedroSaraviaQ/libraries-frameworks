@@ -16,6 +16,7 @@
         <form:form action="/model/${basic.id}" method="post" modelAttribute="basic">
 
             <%-- To use a PUT request, change the form's method to "put" --%>
+            <%-- Add the "isErrorPage" attribute (true) to the "page" tag to show the error messages --%>
 
             <%-- And add a hidden input with the name "_method" and the value "put" inside the form --%>
             <%-- <input type="hidden" name="_method" value="put"/> --%>
