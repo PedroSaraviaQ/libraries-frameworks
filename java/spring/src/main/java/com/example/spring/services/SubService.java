@@ -2,10 +2,8 @@ package com.example.spring.services;
 
 import com.example.spring.models.SubModel;
 import com.example.spring.repositories.SubRepository;
-import com.example.spring.repositories.SuperRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -13,13 +11,13 @@ import java.util.Optional;
 public class SubService extends SuperService<SubModel> {
 
     //* The repository is declared and then assigned in the constructor.
-    SubRepository repository;
+    private final SubRepository repository;
 
     //* The constructor will pass down the repository to the super class.
-    public SubService(SuperRepository<SubModel> repository) {
+    public SubService(SubRepository repository) {
         super(repository);
         //* We downcast the repository to access later the specific methods.
-        this.repository = (SubRepository) repository;
+        this.repository = repository;
     }
 
     //* Additionally; you can add specific methods to the subclass.

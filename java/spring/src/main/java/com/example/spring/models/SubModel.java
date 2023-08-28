@@ -8,7 +8,7 @@ import jakarta.validation.constraints.NotBlank;
 @Table(name = "subtables")
 //* The subclass will just inherit the fields from the superclass.
 public class SubModel extends SuperModel {
-    @NotBlank
+    @NotBlank(message = "Code is required")
     private String code;
 
     public SubModel() {

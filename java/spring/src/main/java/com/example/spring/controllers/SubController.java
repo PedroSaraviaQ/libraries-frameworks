@@ -2,12 +2,11 @@ package com.example.spring.controllers;
 
 import com.example.spring.models.SubModel;
 import com.example.spring.services.SubService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -39,6 +38,28 @@ public class SubController {
         } catch (IllegalArgumentException e) {
 
         }
+        return "redirect:/sub";
+    }
+
+    @GetMapping("/{id}")
+    public String getSub(@PathVariable Long id, Model model) {
+        SubModel sub = subService.findById(id);
+        model.addAttribute("sub", sub);
+        return "subItem.jsp";
+    }
+
+    @PutMapping("/{id}")
+    public String getSub(@Valid @ModelAttribute("sub") SubModel sub, BindingResult result) {
+        if (result.hasErrors()) {
+            return "subItem.jsp";
+        }
+        subService.save(sub);
+        return "redirect:/sub";
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteSub(@PathVariable Long id) {
+        subService.deleteById(id);
         return "redirect:/sub";
     }
 }

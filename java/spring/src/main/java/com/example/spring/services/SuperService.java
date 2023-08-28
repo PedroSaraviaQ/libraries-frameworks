@@ -37,4 +37,8 @@ public abstract class SuperService<T> {
             return null;
         }
     }
+
+    public void deleteById(Long id) {
+        repository.deleteById(id);
+    }
 }

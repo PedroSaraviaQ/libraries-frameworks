@@ -18,7 +18,7 @@ public abstract class SuperModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Name is required")
     private String name;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")

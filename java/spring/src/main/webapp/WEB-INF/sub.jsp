@@ -15,7 +15,7 @@
         <ul>
             <c:forEach items="${subs}" var="sub">
                 <li>
-                    <c:out value="${sub.name}: ${sub.code}"/>
+                    <a href="/sub/${sub.id}"><c:out value="${sub.name}: ${sub.code}"/></a>
                 </li>
             </c:forEach>
         </ul>
