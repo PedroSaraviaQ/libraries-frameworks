@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Title</title>
+        <title>Sub Item</title>
         <link rel="stylesheet" href="/css/model.css">
     </head>
     <body>

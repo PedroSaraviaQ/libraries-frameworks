@@ -6,14 +6,14 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-//* When you have models that have the same fields, you can create a super class that contains those fields.
+//! This class will never be referenced later, it's only used to abstract common fields.
 
-//* This annotation is used to mark super classes that are not entities themselves,
+//* Use the "@MappedSuperclass" annotation to prevent creating a table for this class in the database.
 @MappedSuperclass
 
-//! They don't take the "@Entity" and the "@Table" annotations.
-//* You should mark them as abstract.
+//! Omit the "@Entity" and "@Table" annotations, and mark the class as abstract.
 public abstract class SuperModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

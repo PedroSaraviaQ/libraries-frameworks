@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Inheriting</title>
+        <title>Sub View</title>
     </head>
     <body>
         <form action="/sub" method="post">

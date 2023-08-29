@@ -6,21 +6,25 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+//* This service will implement the logic for the specific methods of the sub repository.
+
+//* "@Service" is required here too.
 @Service
-//* The subclass will just extend the super class, and pass the model as parameter.
+
+//* Extend the super service and pass the sub model, just like with the sub repository.
 public class SubService extends SuperService<SubModel> {
 
-    //* The repository is declared and then assigned in the constructor.
+    //* We declare the sub repository to use its specific methods.
     private final SubRepository repository;
 
-    //* The constructor will pass down the repository to the super class.
     public SubService(SubRepository repository) {
+
+        //* Unlike a standard service, this one calls "super" because the super constructor needs an argument.
         super(repository);
-        //* We downcast the repository to access later the specific methods.
+
         this.repository = repository;
     }
 
-    //* Additionally; you can add specific methods to the subclass.
     public SubModel findByCode(String code) {
         Optional<SubModel> sub = repository.findByCode(code);
         if (sub.isPresent()) {

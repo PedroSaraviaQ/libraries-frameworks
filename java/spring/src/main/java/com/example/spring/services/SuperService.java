@@ -6,15 +6,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-//* Also for services, we can create a super class to avoid repeating code.
+//* The super service will be for abstracting the logic of the default methods.
 
-//! The super class takes the @Service annotation though.
+//! The super class does actually take the @Service annotation.
 @Service
 
-//* The class should be abstract, and will take a generic type as parameter.
+//* The class is abstract like the super model, and also takes a generic type like the super repository.
 public abstract class SuperService<T> {
 
-    //* Every reference to the model is replaced by the generic type.
+    //* We declare it as a super repository, but later it will be instantiated as a sub repository.
     private final SuperRepository<T> repository;
 
     public SuperService(SuperRepository<T> repository) {

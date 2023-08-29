@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//* Then the rest works the same way as a normal controller.
+//* The controller doesn't need any changes.
 
 @Controller
 @RequestMapping("/sub")
