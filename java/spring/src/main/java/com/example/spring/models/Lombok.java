@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,12 +15,15 @@ import java.util.Date;
 @Entity
 @Table(name = "lomboks")
 
-//* Add these annotations to generate getters and setters for the model
+//* These annotations generate getters and setters for each field in the model.
 @Getter
 @Setter
 
-//* This annotation generates a constructor with no arguments
+//* This generates a constructor with no arguments
 @NoArgsConstructor
+
+//* The "@Data" annotation is a shortcut to "@Getter", "@Setter", but also to "@RequiredArgsConstructor".
+// @Data
 
 public class Lombok {
 
