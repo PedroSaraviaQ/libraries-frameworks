@@ -26,7 +26,7 @@ public class BasicService {
     }
 
     //* This will return a list of all the elements in the database.
-    //! The methods doesn't have to match in name, but it's a good practice.
+    //! The methods don't have to match in name, but it's a good practice.
     public List<Basic> findAll() {
         //* Just use the repository to find all the elements.
         return basicRepository.findAll();
@@ -39,7 +39,6 @@ public class BasicService {
 
     public Basic findById(Integer id) {
         //* Finds an element by its id.
-        //* "Optional" is used if the element is not found.
         Optional<Basic> optionalBasic = basicRepository.findById(id);
 
         //* This code is used to return the element, or null if it's not found.

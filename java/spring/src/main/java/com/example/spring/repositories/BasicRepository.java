@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 //* They should be interfaces, and stored in the "repositories" package.
 
@@ -24,5 +25,6 @@ public interface BasicRepository extends CrudRepository<Basic, Integer> {
     List<Basic> findAll();
 
     //* Advanced methods can be created using the "Query Creation" from JPA.
-    Basic findByName(String name);
+    //! Use "Optional" when returning a single element to avoid null pointer exceptions.
+    Optional<Basic> findByName(String name);
 }
