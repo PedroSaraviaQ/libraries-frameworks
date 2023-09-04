@@ -2,6 +2,7 @@ package com.example.spring.services;
 
 import com.example.spring.models.SubModel;
 import com.example.spring.repositories.SubRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -24,6 +25,9 @@ public class SubService extends SuperService<SubModel> {
 
         this.repository = repository;
     }
+
+    //* "@Autowired" even works when "super" is called.
+    // @Autowired private SubRepository repository;
 
     public SubModel findByCode(String code) {
         Optional<SubModel> sub = repository.findByCode(code);

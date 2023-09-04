@@ -2,6 +2,7 @@ package com.example.spring.services;
 
 import com.example.spring.models.Basic;
 import com.example.spring.repositories.BasicRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,6 +25,10 @@ public class BasicService {
     public BasicService(BasicRepository basicRepository) {
         this.basicRepository = basicRepository;
     }
+
+    //* To avoid creating a constructor, use "@Autowired" for the field.
+    //! You can't use "final" though.
+    // @Autowired private BasicRepository basicRepository;
 
     //* This will return a list of all the elements in the database.
     //! The methods don't have to match in name, but it's a good practice.
