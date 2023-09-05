@@ -27,6 +27,7 @@ public class SubService extends SuperService<SubModel> {
     }
 
     //* "@Autowired" even works when "super" is called.
+    //! But in order to work, both the super and sub repositories need to be autowired.
     // @Autowired private SubRepository repository;
 
     public SubModel findByCode(String code) {
