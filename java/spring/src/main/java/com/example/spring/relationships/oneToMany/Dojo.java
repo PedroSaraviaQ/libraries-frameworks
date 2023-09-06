@@ -17,4 +17,12 @@ public class Dojo extends SuperModel {
 
     //* Collection of linked objects of the other model.
     private List<Ninja> ninjas;
+
+    public List<Ninja> getNinjas() {
+        return ninjas;
+    }
+
+    public void setNinjas(List<Ninja> ninjas) {
+        this.ninjas = ninjas;
+    }
 }

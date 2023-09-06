@@ -15,4 +15,12 @@ public class Ninja extends SuperModel {
 
     //* The linked object of the other model.
     private Dojo dojo;
+
+    public Dojo getDojo() {
+        return dojo;
+    }
+
+    public void setDojo(Dojo dojo) {
+        this.dojo = dojo;
+    }
 }
