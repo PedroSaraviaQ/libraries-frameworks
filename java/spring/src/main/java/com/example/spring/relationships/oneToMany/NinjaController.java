@@ -4,10 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,6 +34,36 @@ public class NinjaController {
             return "rships/ninjas.jsp";
         }
         ninjaService.save(ninja);
+        return "redirect:/ninjas";
+    }
+
+    @GetMapping("/{id}")
+    public String getNinja(@PathVariable Long id, Model model) {
+        Ninja ninja = ninjaService.findById(id);
+        List<Dojo> dojos = dojoService.findAll();
+        model.addAttribute("ninja", ninja);
+        model.addAttribute("dojos", dojos);
+        return "rships/ninja.jsp";
+    }
+
+    @PostMapping("/{id}")
+    public String update(@Valid @ModelAttribute("ninja") Ninja ninja, BindingResult result) {
+        if (result.hasErrors()) {
+            return "rships/ninja.jsp";
+        }
+
+        //* When updating the ninja, the dojo is also updated.
+        ninjaService.save(ninja);
+
+        return "redirect:/ninjas";
+    }
+
+    @PostMapping("/{id}/delete")
+    public String delete(@PathVariable Long id) {
+
+        //* When deleting the ninja, the dojo also deletes the ninja from its list.
+        ninjaService.deleteById(id);
+
         return "redirect:/ninjas";
     }
 }

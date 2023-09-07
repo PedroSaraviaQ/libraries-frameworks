@@ -4,10 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -37,6 +34,34 @@ public class DojoController {
             return "rships/dojos.jsp";
         }
         dojoService.save(dojo);
+        return "redirect:/dojos";
+    }
+
+    @GetMapping("/{id}")
+    public String getDojo(@PathVariable Long id, Model model) {
+        Dojo dojo = dojoService.findById(id);
+        model.addAttribute(dojo);
+        return "rships/dojo.jsp";
+    }
+
+    @PutMapping("/{id}")
+    public String update(@Valid @ModelAttribute("dojo") Dojo dojo, BindingResult result) {
+        if (result.hasErrors()) {
+            return "rships/dojo.jsp";
+        }
+
+        //* When updating the dojo, the ninjas are also updated.
+        dojoService.save(dojo);
+
+        return "redirect:/dojos";
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable Long id) {
+
+        //! You can't delete a dojo if it has ninjas, you must empty the dojo.
+        dojoService.deleteById(id);
+
         return "redirect:/dojos";
     }
 }

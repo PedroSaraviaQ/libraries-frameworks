@@ -24,7 +24,8 @@
         <ul>
             <c:forEach items="${dojos}" var="dojo">
                 <li>
-                        ${dojo.name}: <c:forEach items="${dojo.ninjas}" var="ninja">${ninja.name} - </c:forEach>
+                    <a href="/dojos/${dojo.id}">${dojo.name}</a>: <c:forEach items="${dojo.ninjas}" var="ninja">
+                    <a href="/ninjas/${ninja.id}">${ninja.name}</a> - </c:forEach>
                 </li>
             </c:forEach>
         </ul>
