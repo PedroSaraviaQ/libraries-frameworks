@@ -45,6 +45,7 @@ public class Basic {
     private String password;
 
     //* "@Min" and "@Max": Range for numbers.
+    //* "@Range": With "min" and "max" attributes.
     @Min(18)
     private Integer age;
 
@@ -59,8 +60,8 @@ public class Basic {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date updatedAt;
 
-    public Basic() {
-    }
+    //! An empty constructor is needed for the model.
+    //* Since we don't have other constructors, we don't need to create the empty one.
 
     public Integer getId() {
         return id;
