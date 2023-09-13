@@ -2,7 +2,6 @@ package com.example.spring.services;
 
 import com.example.spring.models.Basic;
 import com.example.spring.repositories.BasicRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
