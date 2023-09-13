@@ -33,7 +33,10 @@ public class NinjaController {
         if (result.hasErrors()) {
             return "rships/ninjas.jsp";
         }
+
+        //* When creating the ninja, the dojo is saved as well.
         ninjaService.save(ninja);
+
         return "redirect:/ninjas";
     }
 
@@ -52,7 +55,7 @@ public class NinjaController {
             return "rships/ninja.jsp";
         }
 
-        //* When updating the ninja, the dojo is also updated.
+        //* The same goes for updating the ninja.
         ninjaService.save(ninja);
 
         return "redirect:/ninjas";
