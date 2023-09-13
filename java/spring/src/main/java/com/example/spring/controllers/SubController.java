@@ -21,6 +21,9 @@ public class SubController {
         this.subService = subService;
     }
 
+    //* In the service however, you can use "@Autowired" whatsoever.
+    // @Autowired private SubService subService;
+
     @GetMapping("")
     public String sub(Model model) {
         List<SubModel> subs = subService.findAll();
