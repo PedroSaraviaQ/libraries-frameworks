@@ -27,4 +27,7 @@ public interface BasicRepository extends CrudRepository<Basic, Integer> {
     //* Advanced methods can be created using the "Query Creation" from JPA.
     //! Use "Optional" when returning a single element to avoid null pointer exceptions.
     Optional<Basic> findByName(String name);
+
+    //* You can even use 2 or more fields to create a query.
+    List<Basic> findAllByEmailContainingAndAgeGreaterThan(String email, Integer age);
 }
