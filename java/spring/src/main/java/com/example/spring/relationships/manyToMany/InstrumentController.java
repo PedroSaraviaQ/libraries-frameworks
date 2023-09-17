@@ -42,13 +42,10 @@ public class InstrumentController {
         if (result.hasErrors()) {
             return "rships/instrument.jsp";
         }
+        
+        //* Updating an instrument will also update the musician's instruments
         instrumentService.save(instrument);
-        return "redirect:/instruments";
-    }
-    
-    @DeleteMapping("/{id}")
-    public String deleteInstrument(@PathVariable Long id) {
-        instrumentService.deleteById(id);
+        
         return "redirect:/instruments";
     }
 }

@@ -28,7 +28,10 @@ public class MusicianController {
         if (result.hasErrors()) {
             return index(musician, model);
         }
+        
+        //* When creating a new musician, we don't include any instruments yet.
         musicianService.save(musician);
+        
         return "redirect:/musicians";
     }
     
@@ -48,18 +51,31 @@ public class MusicianController {
             model.addAttribute("instruments", instruments);
             return "rships/musician.jsp";
         }
+        
+        //* Because our form uses ModelAttribute, but doesn't include the instruments field,
+        //* we need to retrieve the instruments from the database and set them back on the musician.
         musician.setInstruments(musicianService.findById(musician.getId()).getInstruments());
+        
+        //* Then we can save it as usual.
         musicianService.save(musician);
+        
         return "redirect:/musicians";
     }
     
     @PutMapping("/{id}/instruments")
+    
+    //* To add an instrument to a musician, we retrieve its id as a request parameter.
     public String updateInstruments(@PathVariable("id") Long musicianId, @RequestParam Long instrumentId) {
+        
+        //* We find both the musician and the instrument.
         Musician musician = musicianService.findById(musicianId);
         Instrument instrument = instrumentService.findById(instrumentId);
-        Set<Instrument> instruments = musician.getInstruments();
         
+        //* Then we add the instrument to the musician's set of instruments.
+        Set<Instrument> instruments = musician.getInstruments();
         instruments.add(instrument);
+        
+        //* And finally, we save the musician.
         musician.setInstruments(instruments);
         musicianService.save(musician);
         
@@ -67,12 +83,16 @@ public class MusicianController {
     }
     
     @DeleteMapping("/{id}/instruments")
+    
+    //* The process for removing an instrument is similar.
     public String deleteInstruments(@PathVariable("id") Long musicianId, @RequestParam Long instrumentId) {
         Musician musician = musicianService.findById(musicianId);
         Instrument instrument = instrumentService.findById(instrumentId);
         Set<Instrument> instruments = musician.getInstruments();
         
+        //* Instead of adding the instrument, we remove it from the set.
         instruments.remove(instrument);
+        
         musician.setInstruments(instruments);
         musicianService.save(musician);
         

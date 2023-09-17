@@ -9,6 +9,8 @@
     </head>
     <body>
         <h2>New Musician</h2>
+        
+        <%-- The musician form doesn't include the instruments field. --%>
         <form:form method="post" modelAttribute="musician">
             <p>
                 <form:label path="name">Name:</form:label>

@@ -14,6 +14,10 @@ import java.util.Set;
 @Table(name = "instruments")
 @Getter @Setter
 public class Instrument extends SuperModel {
+    
+    //* "@ManyToMany" works the same as previous relationships for the non-owning side.
     @ManyToMany(mappedBy = "instruments", fetch = FetchType.LAZY)
+    
+    //* Set is also used here to avoid duplicates.
     private Set<Musician> musicians;
 }
