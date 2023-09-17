@@ -6,20 +6,20 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "ninjas")
 public class Ninja extends SuperModel {
-
-    //* "@ManyToOne" also takes the lazy fetch type, and precedes "@JoinColumn".
+    
+    //* "@ManyToOne" takes the lazy fetch but no cascade, and precedes "@JoinColumn".
     @ManyToOne(fetch = FetchType.LAZY)
-
-    //* Tne column name for the foreign key in the database.
+    
+    //* "@JoinColumn" works the same as in "@OneToOne".
     @JoinColumn(name = "dojo_id")
-
+    
     //* The linked object of the other model.
     private Dojo dojo;
-
+    
     public Dojo getDojo() {
         return dojo;
     }
-
+    
     public void setDojo(Dojo dojo) {
         this.dojo = dojo;
     }
