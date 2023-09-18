@@ -23,6 +23,11 @@
             <button>Submit</button>
         </form:form>
         
+        <form:form method="delete">
+            <input type="hidden" name="_method" value="delete">
+            <button>Delete student</button>
+        </form:form>
+        
         <h2>Student's instruments</h2>
         
         <%-- The form for adding an instrument to the musician doesn't use modelAttribute --%>

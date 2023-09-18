@@ -19,6 +19,11 @@
             <button>Submit</button>
         </form:form>
         
+        <form:form method="delete">
+            <input type="hidden" name="_method" value="delete">
+            <button>Delete Instrument</button>
+        </form:form>
+        
         <h2>Musicians</h2>
         <ul>
             <c:forEach items="${instrument.musicians}" var="musician">

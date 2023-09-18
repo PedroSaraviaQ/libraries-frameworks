@@ -98,4 +98,13 @@ public class MusicianController {
         
         return "redirect:/musicians/" + musicianId;
     }
+    
+    @DeleteMapping("/{id}")
+    public String deleteMusician(@PathVariable Long id) {
+        
+        //* When deleting a musician, the instruments also delete the musician from their set.
+        musicianService.deleteById(id);
+        
+        return "redirect:/musicians";
+    }
 }

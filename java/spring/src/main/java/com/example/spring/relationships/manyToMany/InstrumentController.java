@@ -48,4 +48,13 @@ public class InstrumentController {
         
         return "redirect:/instruments";
     }
+    
+    @DeleteMapping("/{id}")
+    public String deleteInstrument(@PathVariable Long id) {
+        
+        //! You can't delete an instrument if it's still being used by a musician.
+        instrumentService.deleteById(id);
+        
+        return "redirect:/instruments";
+    }
 }
