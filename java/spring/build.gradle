@@ -33,6 +33,9 @@ dependencies {
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
     implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
     implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+
+    //* This is added for password hashing:
+    implementation 'org.mindrot:jbcrypt:0.4'
 }
 
 tasks.named('test') {
