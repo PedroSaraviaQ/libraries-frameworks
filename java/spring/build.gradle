@@ -26,9 +26,7 @@ dependencies {
     implementation 'com.mysql:mysql-connector-j'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
-    implementation 'org.projectlombok:lombok'
-
-    //* The compiler needs this when using lombok outside of models and views.
+    compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
     //* These can be added after, and they're required for working with JSPs:
