@@ -23,3 +23,20 @@ yarn-error.log*
 .venv
 *.sqlite3
 .pytest_cache
+
+#***************************** JAVA *****************************
+out/
+*.iml
+target/
+.gradle/
+.idea/
+build/
+application.properties
+
+#**************************** C# ****************************
+bin/
+obj/
+
+#**************************** DART ****************************
+.dart_tool/
+debug/

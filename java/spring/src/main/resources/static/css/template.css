@@ -1,0 +1,19 @@
+footer {
+    border: 1px solid black;
+
+    /* You can use nested selectors with "&", which references the parent selector */
+
+    & p {
+        color: red;
+    }
+
+    /* And also nested classes and pseudo-selectors */
+
+    .copyright {
+        font-style: italic;
+    }
+
+    &:hover {
+        background-color: yellow;
+    }
+}
