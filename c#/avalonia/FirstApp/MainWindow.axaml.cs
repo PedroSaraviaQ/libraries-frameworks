@@ -70,13 +70,13 @@ public partial class MainWindow : Window
     private void TextBlock_PointerPressed(object sender, PointerPressedEventArgs e)
     {
         TextBlock? textBlock = sender as TextBlock;
-        if (textBlock != null && findingMatch == false)
+        if (findingMatch == false)
         {
-            textBlock.IsVisible = false;
+            textBlock!.IsVisible = false;
             lastTextBlockClicked = textBlock;
             findingMatch = true;
         }
-        else if (textBlock != null && textBlock.Text == lastTextBlockClicked?.Text)
+        else if (textBlock!.Text == lastTextBlockClicked!.Text)
         {
             matchesFound++;
             textBlock.IsVisible = false;
@@ -84,7 +84,7 @@ public partial class MainWindow : Window
         }
         else
         {
-            if (lastTextBlockClicked != null) lastTextBlockClicked.IsVisible = true;
+            lastTextBlockClicked.IsVisible = true;
             findingMatch = false;
         }
     }
