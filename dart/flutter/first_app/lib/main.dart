@@ -23,6 +23,9 @@ void main() {
         title: const Text("My First App"),
         //* "centerTitle" centers it
         centerTitle: true,
+        //* "backgroundColor" changes the color of the widget
+        //* You can use the "Colors" class to get a list of colors
+        backgroundColor: Colors.red,
       ),
       //* "body" will be the main content of the app
       //* "Center" can be used to wrap any widget and center it
@@ -34,8 +37,20 @@ void main() {
       floatingActionButton: const FloatingActionButton(
         //! "onPressed" is required, but we'll leave it as null for now
         onPressed: null,
+        backgroundColor: Colors.red,
         //* "child" is the widget that will be displayed inside the button
-        child: Text("Click"),
+        child: Text(
+          "Click",
+          //* You can add the "style" property to a text, and then use "TextStyle"
+          style: TextStyle(
+            //* Its properties are similar to CSS
+            color: Colors.white,
+            fontStyle: FontStyle.italic,
+            fontSize: 20,
+            //* Fonts have to be imported in the "pubspec.yaml" file
+            fontFamily: "IndieFlower",
+          ),
+        ),
       ),
     ),
   ));
