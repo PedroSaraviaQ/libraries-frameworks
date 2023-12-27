@@ -13,7 +13,7 @@ void main1() {
   ));
 }
 
-void main() {
+void main2() {
   runApp(MaterialApp(
     //* "Scaffold" is a widget that provides a basic layout structure for the app
     home: Scaffold(
@@ -54,4 +54,44 @@ void main() {
       ),
     ),
   ));
+}
+
+void main() {
+  runApp(const MaterialApp(
+    //* You can also create a widget and pass it to "home"
+    home: MyApp(),
+  ));
+}
+
+//* Just type "stless" and press enter to create a stateless widget (hot reload)
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    //* Then replace the returning widget with the one you want
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("My First App"),
+        centerTitle: true,
+        backgroundColor: Colors.red,
+      ),
+      body: const Center(
+        child: Text("Hello Pedro"),
+      ),
+      floatingActionButton: const FloatingActionButton(
+        onPressed: null,
+        backgroundColor: Colors.red,
+        child: Text(
+          "Click",
+          style: TextStyle(
+            color: Colors.white,
+            fontStyle: FontStyle.italic,
+            fontSize: 20,
+            fontFamily: "IndieFlower",
+          ),
+        ),
+      ),
+    );
+  }
 }
