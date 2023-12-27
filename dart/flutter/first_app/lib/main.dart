@@ -85,7 +85,53 @@ class MyApp extends StatelessWidget {
         // image: AssetImage("assets/train.jpg"),
         // ),
         //* You can also just use "Image.asset" and "Image.network" for short
-        child: Image.asset("assets/train.jpg"),
+        // child: Image.asset("assets/train.jpg"),
+
+        //* "Icon" takes an object of the "Icons" class
+        // child: Icon(
+        //   Icons.airport_shuttle,
+        //   //* Additional properties can be added to the icon
+        //   color: Colors.amber,
+        //   size: 50,
+        // ),
+
+        //* "ElevatedButton" is a button that can be pressed
+        // child: ElevatedButton(
+        // onPressed: () {},
+        //* "style" takes an "ElevatedButton.styleFrom" widget
+        // style: ElevatedButton.styleFrom(
+        // backgroundColor: Colors.red,
+        // foregroundColor: Colors.white,
+        // ),
+        // child: const Text("Hello"),
+        // ),
+
+        //* "TextButton" is a button that can be pressed
+        // child: TextButton(
+        //   onPressed: () {},
+        //   style: TextButton.styleFrom(
+        //     backgroundColor: Colors.green,
+        //     foregroundColor: Colors.white,
+        //   ),
+        //   child: const Text("Hello"),
+        // ),
+
+        //* "ElevatedButton.icon" is a button that can be pressed
+        // child: ElevatedButton.icon(
+        //   onPressed: () {},
+        //   icon: const Icon(
+        //     Icons.mail_outline,
+        //   ),
+        //   label: const Text("Mail"),
+        // ),
+
+        //* "IconButton" is a button that can be pressed
+        child: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.lunch_dining,
+          ),
+        ),
       ),
       floatingActionButton: const FloatingActionButton(
         onPressed: null,
