@@ -76,8 +76,16 @@ class MyApp extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.red,
       ),
-      body: const Center(
-        child: Text("Hello Pedro"),
+      body: Center(
+        //* "Image" is used to display an image
+        // child: Image(
+        //* "image" takes an "ImageProvider" which can be "NetworkImage" (URL) or "AssetImage" (local)
+        // image: NetworkImage("https://picsum.photos/200/300"),
+        //! For "AssetImage", you must add the image to the "pubspec.yaml" file
+        // image: AssetImage("assets/train.jpg"),
+        // ),
+        //* You can also just use "Image.asset" and "Image.network" for short
+        child: Image.asset("assets/train.jpg"),
       ),
       floatingActionButton: const FloatingActionButton(
         onPressed: null,
